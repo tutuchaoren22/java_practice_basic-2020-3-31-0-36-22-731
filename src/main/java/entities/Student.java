@@ -1,27 +1,30 @@
 package entities;
 
+import java.util.Date;
+
 public class Student {
-    int studentId;
-    String name;
-    String gender;
-    String birthday;
+    private int id;
+    private String name;
+    private String gender;
+    private int age;
 
     public Student() {
     }
 
-    public Student(int studentId, String name, String gender, String birthday) {
-        this.studentId = studentId;
+
+    public Student(int id, String name, String gender, int age) {
+        this.id = id;
         this.name = name;
         this.gender = gender;
-        this.birthday = birthday;
+        this.age = age;
     }
 
-    public int getStudentId() {
-        return studentId;
+    public int getId() {
+        return id;
     }
 
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -40,11 +43,11 @@ public class Student {
         this.gender = gender;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public int getAge() {
+        return age;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setAge(int age) {
+        this.age = age;
     }
 }

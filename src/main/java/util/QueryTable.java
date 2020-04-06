@@ -1,6 +1,7 @@
 package util;
 
 import entities.Course;
+import entities.RoleInfo;
 import entities.Student;
 import entities.Teacher;
 
@@ -107,6 +108,38 @@ public class QueryTable {
                 courses.add(course);
             }
             return courses;
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeResource(conn, preparedStatement, resultSet);
+        }
+        return null;
+    }
+
+    public static RoleInfo queryForLogin(String sql, Object... args) {
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            conn = JDBCUtils.getConnection();
+            preparedStatement = conn.prepareStatement(sql);
+            for (int i = 0; i < args.length; i++) {
+                preparedStatement.setObject(i + 1, args[i]);
+            }
+            resultSet = preparedStatement.executeQuery();
+            ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+            int count = resultSetMetaData.getColumnCount();
+            RoleInfo roleInfo = new RoleInfo();
+            if (resultSet.next()) {
+                for (int i = 0; i < count; i++) {
+                    Object value = resultSet.getObject(i + 1);
+                    String columnName = resultSetMetaData.getColumnName(i + 1);
+                    Field field = RoleInfo.class.getDeclaredField(columnName);
+                    field.setAccessible(true);
+                    field.set(roleInfo, value);
+                }
+            }
+            return roleInfo;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

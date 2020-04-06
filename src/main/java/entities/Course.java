@@ -1,9 +1,9 @@
 package entities;
 
 public class Course {
-    int courseId;
-    String courseName;
-    int teacherId;
+    private int courseId;
+    private String courseName;
+    private int teacherId;
 
     public Course() {
     }
