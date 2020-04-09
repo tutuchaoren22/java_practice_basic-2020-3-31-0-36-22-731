@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.Date;
-
 public class Student {
     private int id;
     private String name;
@@ -14,6 +12,12 @@ public class Student {
 
     public Student(int id, String name, String gender, int age) {
         this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+    }
+
+    public Student(String name, String gender, int age) {
         this.name = name;
         this.gender = gender;
         this.age = age;

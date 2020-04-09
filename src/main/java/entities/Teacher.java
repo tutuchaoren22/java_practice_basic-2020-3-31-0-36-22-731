@@ -1,9 +1,7 @@
 package entities;
 
-import java.util.Date;
-
 public class Teacher {
-    private int teacherId;
+    private int id;
     private String name;
     private String gender;
     private int age;
@@ -12,19 +10,18 @@ public class Teacher {
     }
 
 
-    public Teacher(int teacherId, String name, String gender, int age) {
-        this.teacherId = teacherId;
+    public Teacher(String name, String gender, int age) {
         this.name = name;
         this.gender = gender;
         this.age = age;
     }
 
-    public int getTeacherId() {
-        return teacherId;
+    public int getId() {
+        return id;
     }
 
-    public void setTeacherId(int teacherId) {
-        this.teacherId = teacherId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

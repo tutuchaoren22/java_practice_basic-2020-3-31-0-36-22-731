@@ -1,25 +1,24 @@
 package entities;
 
 public class Course {
-    private int courseId;
+    private int id;
     private String courseName;
     private int teacherId;
 
     public Course() {
     }
 
-    public Course(int courseId, String courseName, int teacherId) {
-        this.courseId = courseId;
+    public Course(String courseName, int teacherId) {
         this.courseName = courseName;
         this.teacherId = teacherId;
     }
 
-    public int getCourseId() {
-        return courseId;
+    public int getId() {
+        return id;
     }
 
-    public void setCourseId(int courseId) {
-        this.courseId = courseId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCourseName() {
