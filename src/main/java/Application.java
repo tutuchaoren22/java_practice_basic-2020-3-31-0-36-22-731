@@ -50,7 +50,6 @@ public class Application {
         } else {
             System.out.println("用户名或者密码错误");
         }
-
     }
 
     public static void operateForInput(String input) {
